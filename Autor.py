@@ -114,6 +114,9 @@ class Autore:
         """Destruktor (optional)"""
         print(f"Autor {self.vollstaendiger_name()} wird gelöscht...")
 
+    def voller_name(self):
+        """Gibt den Vor- und Nachnamen als einen String zurück."""
+        return f"{self._vorname} {self._nachname}"
 
 # 📚 **Beispiel: 5 Autoren instanziieren**
 print("=" * 50)
