@@ -22,8 +22,8 @@ class Kunde:
         self.aktiv = False
 
 class Buchausleihe:
-    def __init__(self, ausleihe: Ausleihe, Kunde ):
-        self.Kunde = Kunde
+    def __init__(self, ausleihe: Ausleihe, kunde: Kunde ):
+        self.kunde = kunde
         self.ausleihe = ausleihe
     def kunde_leiht_aus(self):
         print(f"{self.Kunde.name} leiht aus {self.ausleihe}.")
