@@ -1,1 +1,2 @@
 # g2_2026_playground
+Kunde = {}
