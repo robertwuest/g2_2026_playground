@@ -41,3 +41,9 @@ class Buch:
 
     def __str__(self):
         return f"Titel: {self.titel}, Autor: {self.autor}, Erscheinungsjahr: {self.erscheinungsjahr}, ISBN: {self.isbn}, Seitenzahl: {self.seitenanzahl}"
+    
+    def __gt__(self, seitenanzahl):
+        return self.seitenanzahl > seitenanzahl
+    
+    def __eq__(self, jahr):
+        return self.erscheinungsjahr == jahr
