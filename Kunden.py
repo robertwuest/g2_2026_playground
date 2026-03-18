@@ -1,6 +1,10 @@
-from Ausleihe import Ausleihe
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from Ausleihe import Ausleihe
+
+
 class Kunde:
-    
     def __init__(self, kunden_id, vorname, nachname, email, telefon, adresse):
         self.kunden_id = kunden_id
         self.vorname = vorname
@@ -21,9 +25,11 @@ class Kunde:
     def deaktivieren(self):
         self.aktiv = False
 
+
 class Buchausleihe:
-    def __init__(self, ausleihe: Ausleihe, kunde: Kunde ):
+    def __init__(self, ausleihe: "Ausleihe", kunde: "Kunde"):
         self.kunde = kunde
         self.ausleihe = ausleihe
+
     def kunde_leiht_aus(self):
         print(f"{self.Kunde.name} leiht aus {self.ausleihe}.")
