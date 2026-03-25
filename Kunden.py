@@ -1,9 +1,3 @@
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from Ausleihe import Ausleihe
-
-
 class Kunde:
     def __init__(self, kunden_id, vorname, nachname, email, telefon, adresse):
         self.kunden_id = kunden_id
