@@ -1,11 +1,11 @@
 from Kunden import Kunde
+from Person import Person
 
 
-class Mitarbeiter:
+class Mitarbeiter(Person):
     def __init__(self, id, name, alter, position):
+        super().__init__(name, alter)
         self.mitarbeiter_id = id
-        self.name = name
-        self.alter = alter
         self.position = position
 
     def __str__(self):
