@@ -1,7 +1,9 @@
 from datetime import date
+from typing import TYPE_CHECKING
 
-from Kunden import Kunde
-from Mitarbeiter import Mitarbeiter
+if TYPE_CHECKING:
+    from Kunden import Kunde
+    from Mitarbeiter import Mitarbeiter
 
 
 class Ausleihe:
