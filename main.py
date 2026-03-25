@@ -27,3 +27,4 @@ betreuung_2 = Kundenbetreuung(mitarbeiter_2, kunde_2)
 
 print(mitarbeiter_1 == mitarbeiter_2)
 print(mitarbeiter_1 == mitarbeiter_1)
+print(mitarbeiter_1)
