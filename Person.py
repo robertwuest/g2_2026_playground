@@ -40,11 +40,3 @@ class Kunde(Person):
     def deaktivieren(self):
         self.aktiv = False
  
- 
-class Buchausleihe:
-    def __init__(self, ausleihe: Ausleihe, kunde: Kunde):
-        self.kunde = kunde
-        self.ausleihe = ausleihe
- 
-    def kunde_leiht_aus(self):
-        print(f"{self.Kunde.vorname} {self.Kunde.nachname} leiht aus {self.ausleihe}.")
