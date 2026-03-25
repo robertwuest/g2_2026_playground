@@ -1,4 +1,3 @@
-from Ausleihe import Ausleihe
 from Person import Person
  
  
