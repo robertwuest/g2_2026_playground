@@ -4,7 +4,7 @@ class Buch:
     def __init__(self, titel, autor: Autore , erscheinungsjahr, isbn, seitenanzahl):
         """Initialisiert ein neues Buch-Objekt."""
         self._titel = titel
-        self._autor = Autore.get_nachname and Autore.get_vorname
+        self._autor = autor
         self._erscheinungsjahr = erscheinungsjahr
         self._isbn = isbn
         self._seitenanzahl = seitenanzahl
