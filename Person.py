@@ -7,5 +7,5 @@ class Person:
         self.name = name
         self.date_of_birth = datetime.strptime(date_of_birth, '%Y-%m-%d')
 
-    def get_age(self) -> relativedelta:
-        return relativedelta(datetime.now(), self.date_of_birth)
+    def get_age(self) -> int:
+        return relativedelta(datetime.now(), self.date_of_birth).years

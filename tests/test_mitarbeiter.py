@@ -1,4 +1,5 @@
 from unittest import TestCase
+from freezegun import freeze_time
 
 from Mitarbeiter import Mitarbeiter, Position
 
@@ -24,13 +25,14 @@ class TestMitarbeiter(TestCase):
         
         self.assertNotEqual(self.employee1, employee2, f'{self.employee1} should not be equal to {employee2} due to different values in field id.')
 
+    @freeze_time("2026-03-30")
     def test_employee_age_by_position(self):
         # assign
         expected_age_employee1 = 25
-        expected_age_employee2 = 22
-        expected_age_employee3 = 39
-        expected_age_employee4 = 27
-        expected_age_employee5 = 41
+        expected_age_employee2 = 21
+        expected_age_employee3 = 38
+        expected_age_employee4 = 26
+        expected_age_employee5 = 40
         
         id2, name2, date_of_birth2, position2 = 1231, "Bob", '2005-12-26', Position.SECRETARY
         id3, name3, date_of_birth3, position3 = 1232, "Charlie", '1992-12-26', Position.CUSTOMER_SERVICE
@@ -55,18 +57,19 @@ class TestMitarbeiter(TestCase):
         self.assertEqual(expected_age_employee3, actual_age_employee3, f'Employee 3 {employee3} should be {expected_age_employee3} but is {actual_age_employee3}.')
         self.assertEqual(expected_age_employee4, actual_age_employee4, f'Employee 4 {employee4} should be {expected_age_employee4} but is {actual_age_employee4}.')
         self.assertEqual(expected_age_employee5, actual_age_employee5, f'Employee 5 {employee5} should be {expected_age_employee5} but is {actual_age_employee5}.')
-        
+    
+    @freeze_time("2026-03-30")
     def test_unrealistic_manager_age(self):    
-        expected_age_employee6 = 10
+        expected_age_employee6 = 9
         id6, name6, date_of_birth6, position6 = 1235, "Phi", '2016-11-28', Position.MANAGER
         employee6 = Mitarbeiter(id6, name6, date_of_birth6, position6)
 
-        actual_age = self.employee1.get_age()
+        actual_age = employee6.get_age()
 
         self.assertFalse(actual_age <= 0)
         self.assertEqual(expected_age_employee6, actual_age, f'Employee 6 {employee6} should be {expected_age_employee6} but is {actual_age}.')
 
-    def test_raise_value_error_when_creating_employee_with_date_of_birth_bad_formatted(self):
+    def test_raise_value_error_when_creating_employee_with_date_of_birth_value_of_bad_formatted(self):
         id2, name2, date_of_birth2, position2 = 1231, "Bob", '982131343', Position.SECRETARY
         with self.assertRaises(ValueError):
             constructor_call = Mitarbeiter(id2, name2, date_of_birth2, position2)
