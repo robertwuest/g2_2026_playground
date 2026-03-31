@@ -1,6 +1,6 @@
 from datetime import datetime
 from Kunden import Kunde
-from Person import Person
+from Person import KontaktInformation, Person, Adresse
 from enum import Enum
 from dateutil.relativedelta import relativedelta
 
@@ -19,13 +19,19 @@ class Position(Enum):
 
 
 class Mitarbeiter(Person):
-    def __init__(self, id, name, date_of_birth, position):
-        super().__init__(name, date_of_birth)
+    def __init__(self, id, vorname, nachname, geburtstag, position, kontakt_information: KontaktInformation, adresse: Adresse):
+        super().__init__(
+            vorname,
+            nachname,
+            geburtstag,
+            kontakt_information,
+            adresse
+            )
         self.mitarbeiter_id = id
         self.position = position
 
     def __str__(self):
-        return f"{self.name}, Ist aufgrund seiner Position gefühlt {self.get_age()} Jahre alt, Position: {self.position}"
+        return f"{self.vorname} {self.nachname}, Ist aufgrund seiner Position gefühlt {self.get_age()} Jahre alt, Position: {self.position}"
 
     def __eq__(self, mitarbeiter2: "Mitarbeiter"):
         if self.mitarbeiter_id == mitarbeiter2.mitarbeiter_id:
@@ -62,4 +68,4 @@ class Kundenbetreuung:
         self.kunde = kunde
 
     def __str__(self):
-        return f"{self.mitarbeiter.name} betreut {self.kunde}."
+        return f"{self.mitarbeiter.vorname} {self.mitarbeiter.nachname} betreut {self.kunde}."
